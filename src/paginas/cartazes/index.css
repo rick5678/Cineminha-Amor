@@ -1,0 +1,17 @@
+.filme-cartaz{
+    width: 250px;
+    height: 300px;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.filme-cartaz:hover{
+    transform: scale(110%);
+    transition: 0.3s;
+}
+
+.poster{
+    width: 100%;
+    transform: scale(0.9);
+    transition: all ease 0.2s;
+}

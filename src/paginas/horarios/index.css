@@ -1,0 +1,156 @@
+.container-horarios {
+    position: absolute;
+    width: 93%;
+    height: 800px;
+    margin: 2% 3%;
+    color: #fff;
+    display: flex;
+}
+
+.poster-horarios {
+    width: 400px;
+    margin: 2%;
+    display: flexbox;
+}
+
+.poster-horarios h3 {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.poster{
+    width: 300px;
+}
+
+.titulo-poster{
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-horarios {
+    width: 15%;
+}
+
+.th-horarios {
+    margin: 1%;
+    padding: 1%;
+}
+
+th,
+td {
+    width: 30%;
+    padding: 2% 20%;
+    height: 20px;
+    text-align: center;
+    align-items: center;
+}
+
+.btnHorario {
+    font-weight: bold;
+    background-color: rgb(84, 233, 103);
+    border-style: none;
+    border-radius: 4px;
+    height: 40px;
+    width: 70px;
+}
+
+.btnHorario:hover {
+    transform: scale(110%);
+}
+
+.container-assentos {
+    width: 60%;
+    height: 850px;
+    margin: 1% 5%;
+}
+
+.linha-assento {
+    width: 40px;
+    height: 30px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+
+.cor-cadeira {
+    width: 60px;
+    height: 60px;
+    background-size: 60px;
+    background-color: rgb(247, 0, 0);
+    background-image: url("../../imagens/icon.png");
+    background-repeat: no-repeat;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+#cadeira-vaga {
+    background-color: rgb(94, 255, 0);
+}
+
+.cor-cadeira:hover {
+    transform: scale(110%);
+}
+
+.row h5 {
+    color: aquamarine;
+    position: relative;
+    float: left;
+}
+
+.texto-cadeira {
+    position: relative;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    color: #fff;
+    top: 48px;
+    left: 15px;
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Old versions of Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.assento-invi {
+    opacity: 0;
+}
+
+.container-comprar {
+    width: 150px;
+    height: 20px;
+    margin-top: 1%;
+}
+
+.botao-comprar {
+    width: 100%;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 0, 0);
+    border: 2px solid rgb(255, 0, 0);
+    border-radius: 25px;
+}
+
+.botao-comprar:hover {
+    transform: scale(110%);
+}

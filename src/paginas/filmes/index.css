@@ -1,0 +1,29 @@
+.conteiner-cartazes{
+    width: 94%;
+    height: 900px;
+    margin: 3%;
+    color: #fff;
+}
+.filmes-disp{
+    align-items: center;
+    text-align: center;
+}
+
+.hidden{
+    opacity: 0;
+    transition: 5s;
+    animation: aparecer 5s forwards;
+}
+
+@keyframes aparecer {
+    0%
+    {
+        opacity: 0;
+    }
+    
+    100%
+    {
+        opacity: 1;
+    } 
+  }
+

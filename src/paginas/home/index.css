@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Shadows+Into+Light&display=swap');
+
+body{
+    overflow-x: hidden;
+}
+
+.container-principal{
+    position: relative;
+    width: 101%;
+    height: 1290px;
+    background: black;
+    background-size: 85%;
+    background-position-x: center;
+}
+
+.container-principal h2, .container-principal h1 {
+    position: absolute;
+    left: 400px;
+    top: 350px;
+    transform: translate(35%) rotatez(-20deg);
+    z-index: 9999999;
+    font-family: 'Shadows Into Light', cursive;
+    font-weight: bold;
+    font-size: 100px;
+    color: #000;
+    text-shadow: 30px 50px 30px; 
+}
+
+.container-principal h1 {
+    top: 400px;
+    font-family: 'Pacifico', cursive;
+    font-size: 120px;
+}
+
+.tela-cinema{
+    position: absolute;
+    top: 200px;
+    left: 10px;
+    width: 60%;
+    height: 500px;
+    margin: 2% 20%;
+    background: rgb(0, 0, 0);
+    z-index: 99999;
+}
+.inputs{
+    margin-top: 10%;
+}
+
+.container-input{
+    width: 20%;
+    height: 30px;
+    margin: 5% 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon{
+    transform: scale(180%);
+    color: #6e0101;
+    margin: 0% 5%;
+}
+
+#user, #password{
+    display: inline;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    border-radius: 200px;
+    border: 3px solid #6e0101;
+    padding: 0px 8px;
+    font-size: 18px;
+    height: 50px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#user:focus, #password:focus{
+    border: 5px solid #ff0000;
+    transform: scale(110%);
+    margin: 2% 3%;
+    box-shadow: 0 0 1em red;
+}
+
+.botoes{
+    display: flex; 
+    width: 100%;
+    justify-content: center;
+}
+
+.botoes div{
+    width: 10%;
+    margin: 2% 2%;
+}
+
+.botao-cinema-play, .botao-cinema-pause{
+    background-color: #6e0101;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 45px;
+    border-radius: 250px;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 0 0 1em red;
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+}
+
+.botao-cinema-play:hover, .botao-cinema-pause:hover {
+    background-color: red;
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 0 0 1em rgb(255, 255, 255);
+    transform: scale(110%);
+}
+
+.icon-btn{
+    transform: scale(150%);
+}
+
+

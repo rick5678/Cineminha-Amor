@@ -1,0 +1,11 @@
+.fixed-top{
+    position: fixed;
+    z-index: 99999999;
+    height: 100px;
+    background: linear-gradient(black,  #00000000 90%);
+    border-style: none;
+}
+
+.nav-bar{
+    border-style: none;
+}
