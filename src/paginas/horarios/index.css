@@ -28,6 +28,17 @@
     font-weight: bold;
 }
 
+.btnVoltar{
+    position: absolute;
+    top: 800px;
+    font-size: 50px;
+    color: #fff;
+}
+
+.btnVoltar:hover{
+    color: red;
+}
+
 .table-horarios {
     width: 15%;
 }
@@ -130,6 +141,10 @@ td {
     -ms-user-select: none;
     /* Internet Explorer/Edge */
     user-select: none;
+}
+
+.texto-cadeira:hover {
+    color: #fff;
 }
 
 .assento-invi {

@@ -2,15 +2,22 @@ import gambiarra from 'gambiarra';
 import LinhaAssentos from 'paginas/assentos/LinhaAssentos';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import Tmdb from 'Tmdb';
 import './index.css';
 
 const Horarios = () => {
     const { id } = useParams();
 
+    const history = useHistory();
+
     const [movieList, setMovieList] = useState([]);
     const [render, setRender] = useState([]);
-    const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I",];
+    const [count, setCount] = useState(-1);
+
+    const alfabeto = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+    let contador = 0;
+    
 
     useEffect(() => {
         const Filmes = async () => {
@@ -19,6 +26,7 @@ const Horarios = () => {
             setMovieList(list);
         }
         Filmes();
+
         const Gamb = async () => {
 
             let gam = await gambiarra.getGambiarra();
@@ -27,18 +35,24 @@ const Horarios = () => {
         Gamb();
     }, []);
 
+    function onClique(e) {
+        return  history.push(`/bilheteria`) ;
+    }
+
     return (
-        <main className="container-cinema">
+        <main className="container-cinema" >
 
             {render.map((item) => (
 
-                <div className='container-horarios'>
+                <div className='container-horarios' >
+
                     <div className='poster-horarios, hidden'>
-                        <img src={movieList[id - 1].img} className='poster' />
+                        <img src={movieList[id - 1].img} className='poster'/>
                         <h3 className='titulo-poster'>{movieList[id - 1].title}</h3>
+                        <a onClick={onClique} className='btnVoltar'><i class="bi bi-skip-backward-circle"></i></a>
                     </div>
 
-                    <table className='table-horarios'>
+                    <table className='table-horarios hidden' >
 
                         <th className='th-horarios'>
 
@@ -46,11 +60,11 @@ const Horarios = () => {
                                 <th>Dublado</th>
                             </tr>
 
-                            {movieList[id - 1].sessoes.map((sessao) => (
+                            {movieList[id - 1].sessoes.map((sessao, index) => (
                                 sessao.linguagem === 'dub'
-                                    ? <tr>
-                                        <td><button className='btnHorario'>{sessao.horario}</button></td>
-                                    </tr>
+                                    ?   <tr>
+                                            <td><button className='btnHorario' onClick={() => setCount(index)}>{sessao.horario}</button></td>
+                                        </tr>
                                     : null
                             ))}
 
@@ -61,10 +75,10 @@ const Horarios = () => {
                             <tr>
                                 <th>Legendado</th>
                             </tr>
-                            {movieList[id - 1].sessoes.map((sessao) => (
+                            {movieList[id - 1].sessoes.map((sessao, index) => (
                                 sessao.linguagem === 'leg'
                                     ? <tr>
-                                        <td><button className='btnHorario'>{sessao.horario}</button></td>
+                                        <td><button className='btnHorario' onClick={() => setCount(index)}>{sessao.horario}</button></td>
                                     </tr>
                                     : null
                             ))}
@@ -72,38 +86,21 @@ const Horarios = () => {
                     </table>
 
                     <div className='container-assentos'>
-                        {movieList[id - 1].sessoes.map((sessao, index) => (
-                            <LinhaAssentos ocupadas={sessao.ocupadas.slice(index * 15, (index * 15) + 15)} tituloLinha={alfabeto[index]} segundaLinha={index == 0 ?true:false}/>
-                        ))}
+
+                        {
+                            alfabeto.map((element) => (
+                                <>
+                                    {count >= 0 ?
+                                    <LinhaAssentos ocupadas={movieList[id - 1].sessoes[count].ocupadas.slice(contador * 15, (contador * 15) + 15)} tituloLinha={alfabeto[contador]} segundaLinha={contador === 0 ?true:false} fileira={element} fileiraBaixo={contador >= 9 ? true : false}/>
+                                    : null}
+                                    {contador++ === 8 ? <><div className='row assento-invi'>a</div><div className='row assento-invi'>a</div></> : null}
+                                    
+                                </>
+                            ))
+                        }
                         
-                        <div className='row assento-invi'>a</div>
-                        <div className='row assento-invi'>a</div>
-                        <div className='row'>
-                        <div className='linha-assento'>J</div>
-                            <a className='cor-cadeira assento-invi' disabled="true"/>
-                             <a className='cor-cadeira assento-invi' disabled="true"/>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>1</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>2</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>3</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>4</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>5</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>6</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>7</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>8</a></a>
-                        </div>
-                        <div className='row'>
-                        <div className='linha-assento'>K</div>
-                            <a className='cor-cadeira assento-invi' disabled="true"/>
-                             <a className='cor-cadeira assento-invi' disabled="true"/>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>1</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>2</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>3</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>4</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>5</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>6</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>7</a></a>
-                             <a className='cor-cadeira '><a className='texto-cadeira'>8</a></a>
-                        </div>
+                        
+                        
                     </div>
 
                     <div className='container-comprar'>
@@ -111,8 +108,6 @@ const Horarios = () => {
                     </div>
 
                 </div>
-
-              
 
             ))}
 

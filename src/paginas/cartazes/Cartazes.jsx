@@ -12,6 +12,7 @@ const Cartazes = ({ id, img}) => {
         <div className='filme-cartaz' onClick={onClique}>
             <img src={img} className='poster' alt={id} />
         </div>
+        
     )
 }
 
